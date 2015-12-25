@@ -1,0 +1,32 @@
+{
+    "plugs": [
+        {
+            "alarm": [], 
+            "state": false, 
+            "id": 0, 
+            "name": "RPi"
+        }, 
+        {
+            "alarm": [], 
+            "state": false, 
+            "id": 1, 
+            "name": "test2"
+        }, 
+        {
+            "alarm": [
+                "2015-12-11 23:02:00", 
+                "2015-12-11 09:53:00", 
+                "2015-12-11 10:00:00"
+            ], 
+            "state": false, 
+            "id": 2, 
+            "name": "RPi"
+        }, 
+        {
+            "alarm": [], 
+            "state": false, 
+            "id": 3, 
+            "name": "Plug 3"
+        }
+    ]
+}

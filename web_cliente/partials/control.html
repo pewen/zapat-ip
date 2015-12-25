@@ -1,0 +1,107 @@
+<div class="control" ng-repeat="plug in plugs">
+  <!-- On/Off Buttons -->
+  <!-- ============== -->
+  <div class="col-xs-3 col-sm-4 col-md-3">
+    <form>
+      <div class="control-button">
+	<div ng-if="plug.state == true">
+          <button class="btn btn-success" type="submit" name="change rele state" ng-click="changeState($index)">
+            <i class="fa fa-power-off fa-5x hidden-xs hidden-sm"></i>
+            <i class="fa fa-power-off fa-3x visible-sm-block"></i>
+            <i class="fa fa-power-off fa-2x visible-xs-block"></i>
+            <p>On</p>
+          </button>
+	</div>
+
+	<div ng-if="plug.state == false">
+          <button class="btn btn-danger" type="submit" name="change rele state" ng-click="changeState($index)">
+            <i class="fa fa-power-off fa-5x hidden-xs hidden-sm"></i>
+            <i class="fa fa-power-off fa-3x visible-sm-block"></i>
+            <i class="fa fa-power-off fa-2x visible-xs-block"></i>
+            <p>Off</p>
+          </button>
+	</div>
+      </div><!--/control-button -->
+    </form>
+  </div><!--/col-xs col-md -->
+
+  
+  <!-- Data (like name) -->
+  <!-- ======================= -->      
+  <div class="col-xs-9 col-sm-8 col-md-9">
+    <div class="control-meta">
+      <header>
+	<h3>{{ plug.name }}</h3>
+	<!-- Change Name -->
+	<!-- =========== -->
+	<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalRename{{ $index }}">Change</button>
+	
+	<div class="modal fade" id="modalRename{{ $index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      
+	      <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="exampleModalLabel">Change Name</h4>
+	      </div><!--/modal-header -->
+	      
+	      <div class="modal-body">
+		<form>
+		  <div class="form-group">
+		    <label for="recipient-name" class="control-label">Name:</label>
+		    <input type="text" class="form-control" name="change name" ng-model="name">
+		  </div><!--/form-group -->
+		</form>
+	      </div><!--/modal-body -->
+
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="button" class="btn btn-primary" type="submit" ng-click="changeName($index, name)" >Change</button>
+	      </div><!--/modal-footer -->
+
+	    </div><!--/modal-content -->
+	  </div><!--/modal-dialog -->
+	</div><!--/modal fade -->
+      </header>
+
+
+      <div class="control-alarm">
+	<!-- Add Alarm -->
+	<!-- ========= -->
+	<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalAlarm{{ $index }}">Nueva Alarma</button>
+
+	<div class="modal fade" id="modalAlarm{{ $index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      
+	      <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="exampleModalLabel">Nueva Alarma</h4>
+	      </div><!--/modal-header -->
+	      
+	      <div class="modal-body">
+		<p>La fecha se tiene que introducir como <strong>yyyy-mm-dd hh:mm</strong> donde <strong>yyyy</strong> es el año, <strong>mm</strong> el mes, <strong>dd</strong> el día, <strong>hh</strong> la hora y <strong>mm</strong> los minutos.</p>
+		<p>Los <strong>-</strong> y los <strong>:</strong> se deben ingresar.</p>
+		<hr></hr>
+		<form class="form-inline">
+		  <div class="form-group">
+		    <label for="add-alarm" class="control-label">Fecha:</label>
+		    <input type="text" class="form-control" name="add-alarm" placeholder="2015-08-21 20:36" ng-model="date">
+		  </div><!--/form-group -->
+		</form>
+	      </div><!--/modal-body -->
+	      
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		<button type="button" class="btn btn-primary" type="submit" ng-click="addAlarm($index, date)">Agregar</button>
+	      </div><!--/modal-footer -->
+
+	    </div><!--/modal-content -->
+	  </div><!--/modal-dialog -->
+	</div><!--/modal fade -->
+      </div><!--/control-alarm -->
+      
+    </div><!--/control-meta -->
+  </div><!--/col-xs-9 col-sm-8 col-md-8 -->
+  
+</div><!--/control -->

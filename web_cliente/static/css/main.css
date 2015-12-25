@@ -1,0 +1,193 @@
+/* Personal CSS
+ * Author: @fnbellomo
+ */
+
+/****************************************
+ * Base structure
+ ****************************************/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "Ubuntu",sans-serif;
+    font-size: 18px;
+    line-height: 1.50;
+    color: #212121;
+    font-weight: 300;
+    background-color: #F5F5F5;
+    padding-top: 0px;
+}
+
+.site-name {
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: #212121;
+    text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+		      color: #0193e0;
+		      outline: 0px none;
+		      text-decoration: none;
+		      transition: all 0.25s linear 0s;
+		  }
+
+ol, ul {
+    list-style: outside none none;
+}
+
+.full-img {
+    width: 100%;
+}
+
+.mean-img {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quarter-img {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main {
+    padding-top: 100px;
+}
+
+blockquote {
+    margin: 0px 8px 15px 0px;
+    background: #FFF url("http://cdn.impressivewebs.com/iw-theme/bg-blockquote.gif") no-repeat scroll 15px 18px;
+    padding: 15px 20px 5px 50px;
+}
+
+.header-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0 !important;
+    border:0 !important;
+    height: 1px !important; 
+    width: 1px !important; 
+    overflow: hidden;
+}
+
+.nav {
+    float: right;
+}
+
+#header-navbar li a {
+    text-transform: uppercase;
+}
+
+/****************************************
+ * Main page
+ ****************************************/
+.cover-img {
+    height: 100%;
+    background: url('../img/back.JPG') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    text-align: center;
+    color: #FFF;
+}
+
+.cover-img h1 {
+    font-weight: 900;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    padding-top: 120px;
+}
+
+/****************************************
+ * Herramientas
+ ****************************************/
+.herramientas {
+    padding-bottom: 30px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.herramientas h2 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+/****************************************
+ * Prestaciones
+ ****************************************/
+.prestaciones {
+    background: #FFF;
+}
+
+.prestaciones-borde {
+    border-right: 1px solid #E9E9E9;
+}
+
+.feature {
+    padding-top: 50px;
+    margin-bottom: 20px;
+    padding-bottom: 200px;
+    width: 100%;
+    border-bottom: 1px solid #E9E9E9;
+}
+
+.feature-img {
+    margin-right: 20px;
+    float: left;
+}
+
+.feature-text {
+    width: 60%;
+    float: right;
+}
+
+/****************************************
+ * Control
+ ****************************************/
+.control {
+    display: block;
+    background: #FFF none repeat scroll 0% 0%;
+    box-shadow: 3px 4px 15px -6px #000;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 140px;
+}
+
+.control-button {
+
+}
+
+.control-meta header {
+
+}
+
+
+/****************************************
+ * Footer
+ ****************************************/
+.last-footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #FFF;
+    background-color: #333C4E;
+}
+
+.sky-blue {
+    color: #89C4F4;
+}
