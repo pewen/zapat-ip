@@ -17,7 +17,7 @@
 * Cliente web estándar HTML5 y JavaScript. El usuario no necesita instalar nada en el dispositivo, se accede mediante el browser.
 * Accesible desde cualquier dispositivo (PC, notebook, smart-phone, etc).
 * Networking: [IPv6](https://en.wikipedia.org/wiki/IPv6)
-* Certificado SSL para conexiones seguras.
+* Certificado [SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security) para conexiones seguras.
 * Autenticación vía [OAuth2](https://en.wikipedia.org/wiki/OAuth)
 
 ###Hardware
