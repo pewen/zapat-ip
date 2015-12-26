@@ -6,7 +6,7 @@
 
 ## Objetivos
 * Desarrollar una primera aplicación con las placas Intel Galileo.
-* Entender los conceptos básicos de Internet of Things (IoT).
+* Entender los conceptos básicos de [Internet of Things (IoT)](https://en.wikipedia.org/wiki/Internet_of_Things)
 * Aprender!
 
 ## Características
@@ -16,9 +16,9 @@
 * Application Programming Interface (API): permite ampliar el uso de acuerdo a nuevas necesidades/ideas/proyectos de la comunidad.
 * Cliente web estándar HTML5 y JavaScript. El usuario no necesita instalar nada en el dispositivo, se accede mediante el browser.
 * Accesible desde cualquier dispositivo (PC, notebook, smart-phone, etc).
-* Networking: IPv6.
+* Networking: [IPv6](https://en.wikipedia.org/wiki/IPv6)
 * Certificado SSL para conexiones seguras.
-* Autenticación vía OAuth2.
+* Autenticación vía [OAuth2](https://en.wikipedia.org/wiki/OAuth)
 
 ###Hardware
 * [Intel Gallileo](https://www-ssl.intel.com/content/www/us/en/do-it-yourself/galileo-maker-quark-board.html).
