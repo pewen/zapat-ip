@@ -12,7 +12,7 @@
 ## Características
 ###Software
 * Linux para sistemas embebidos [Yocto Proyect](https://www.yoctoproject.org/).
-* Servidor REST (REpresentational State Transfer) implementado en Python.
+* [Servidor REST (REpresentational State Transfer)](https://en.wikipedia.org/wiki/Representational_state_transfer) implementado en Python.
 * Application Programming Interface (API): permite ampliar el uso de acuerdo a nuevas necesidades/ideas/proyectos de la comunidad.
 * Cliente web estándar HTML5 y JavaScript. El usuario no necesita instalar nada en el dispositivo, se accede mediante el browser.
 * Accesible desde cualquier dispositivo (PC, notebook, smart-phone, etc).
