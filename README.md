@@ -1,24 +1,24 @@
 # Zapat-IP
 
-**Zapat-IP** es una zapatilla eléctrica IP de software y hardware libre, que nos va a permitir controlar nuestros artículos electrónicos (TV, aire acondicionado, luces, etc.) desde cualquier lugar.
+**Zapat-IP** es una zapatilla eléctrica IP de software y hardware libre, para controlar artículos electrónicos (TV, aire acondicionado, luces, etc.) desde cualquier lugar.
 
 **Área temática: Internet of Things (IoT).**
 
 ## Objetivos
 * Desarrollar una primera aplicación con las placas Intel Galileo.
-* Entender los conceptos básicos de Internet of Things (IoT).
+* Entender los conceptos básicos de [Internet of Things (IoT)](https://en.wikipedia.org/wiki/Internet_of_Things)
 * Aprender!
 
 ## Características
 ###Software
 * Linux para sistemas embebidos [Yocto Proyect](https://www.yoctoproject.org/).
-* Servidor REST (REpresentational State Transfer) implementado en Python.
+* [Servidor REST (REpresentational State Transfer)](https://en.wikipedia.org/wiki/Representational_state_transfer) implementado en Python.
 * Application Programming Interface (API): permite ampliar el uso de acuerdo a nuevas necesidades/ideas/proyectos de la comunidad.
-* Cliente web estándar HTML5 y JavaScript. El usuario no necesita instalar nada en el dispositivo, se accede mediante el browser.
+* Cliente web estándar [HTML5](https://en.wikipedia.org/wiki/HTML5) y [JavaScript](https://en.wikipedia.org/wiki/JavaScript). El usuario no necesita instalar ninguna aplicación adicional en el dispositivo, se accede mediante el browser.
 * Accesible desde cualquier dispositivo (PC, notebook, smart-phone, etc).
-* Networking: IPv6.
-* Certificado SSL para conexiones seguras.
-* Autenticación vía OAuth2.
+* Networking: [IPv6](https://en.wikipedia.org/wiki/IPv6)
+* Certificado [SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security) para conexiones seguras.
+* Autenticación vía [OAuth2](https://en.wikipedia.org/wiki/OAuth)
 
 ###Hardware
 * [Intel Gallileo](https://www-ssl.intel.com/content/www/us/en/do-it-yourself/galileo-maker-quark-board.html).
@@ -48,6 +48,8 @@
 *URIs relativas a http://example.com
 
 #### Licencia
-El código está licenciado bajo [MIT](https://github.com/pewen/zapat-ip/blob/master/LICENSE) y la documentación bajo
+El código está licenciado bajo [MIT](https://github.com/pewen/zapat-ip/blob/master/LICENSE).
+
+La documentación bajo
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Zapat-IP</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/pewen/zapat-ip" rel="dct:source">https://github.com/pewen/zapat-ip</a>.
