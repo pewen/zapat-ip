@@ -63,34 +63,36 @@ def get_plug(plug_id):
     plug_id : int
       Plug ID.
 
-    Request body
+    Request Body
     ------------
     Do not supply a request body with this method.
 
     Return
     ------
     plug : json
-      Propertie of one plug by its ID.
+      Propertie of a plug by its ID.
     """
     plugs = read4json(path)
-    plug = [plug for plug in plugs if plug['id'] == plug_id]
 
-    if len(plug) == 0:
+    # Check if the plug_id exist
+    ids = [x['id'] for x in plugs]
+    if plug_id not in ids:
         abort(404)
-    return jsonify({'plug': plug[0]})
+
+    return jsonify({'plug': plugs[plug_id]})
 
 
 @app.route('/api/plugs/<int:plug_id>', methods=['PUT'])
 def rename_plug(plug_id):
     """
-    Rename some plug, by its ID, to remember wath it has connected.
+    Rename some plug, by its ID.
 
     Path Parameters
     ---------------
     plug_id : int
       Plug ID.
 
-    Request body
+    Request Body
     ------------
     name : str
       New name.
@@ -98,21 +100,26 @@ def rename_plug(plug_id):
     Return
     ------
     plug : json
-      Propertie of one plug by its ID.
+      Propertie of the rename plug.
     """
     plugs = read4json(path)
-    plug = [plug for plug in plugs if plug['id'] == plug_id]
 
-    if len(plug) == 0:
-        abort(400)
+    # Check if the plug_id exist
+    ids = [x['id'] for x in plugs]
+    if plug_id not in ids:
+        abort(404)
+
+    # Check the request body
     if not request.json:
         abort(400)
-    if 'name' in request.json and type(request.json['name']) != unicode:
+    if not 'name' in request.json:
+        abort(400)
+    if type(request.json['name']) != unicode:
         abort(400)
 
     plugs[plug_id]['name'] = request.json['name']
     save2json(path, plugs)
-    return jsonify({'plugs': plugs})
+    return jsonify({'plug': plugs[plug_id]})
 
 
 @app.route('/api/plugs/<int:plug_id>/state', methods=['PUT'])
@@ -120,28 +127,39 @@ def change_state(plug_id):
     """
     Change plug state (On/Off).
 
-    Parameters
-    ----------
+    Path Parameters
+    ---------------
     plug_id : int
       Plug ID.
+
+    Request Body
+    ------------
     state : bool
       Plug state.
+
+    Return
+    ------
+    plug : json
+      Propertie of a plug (by id).
     """
     plugs = read4json(path)
-    plug = [plug for plug in plugs if plug['id'] == plug_id]
 
-    print(request.json)
+    # Check if the plug_id exist
+    ids = [x['id'] for x in plugs]
+    if plug_id not in ids:
+        abort(404)
 
-    if len(plug) == 0:
-        abort(400)
+    # Check the request body
     if not request.json:
         abort(400)
-    if 'state' in request.json and type(request.json['state']) != bool:
+    if not 'state' in request.json:
+        abort(400)
+    if type(request.json['state']) != bool:
         abort(400)
 
     plugs[plug_id]['state'] = request.json['state']
     save2json(path, plugs)
-    return jsonify({'plugs': plugs})
+    return jsonify({'plug': plugs[plug_id]})
 
 
 @app.route('/api/plugs/<int:plug_id>', methods=['POST'])
@@ -149,30 +167,54 @@ def create_alarm(plug_id):
     """
     Create alarm to plug[id]
 
-    Parameter
-    ---------
+    Path Parameter
+    --------------
     plug_id : int
       Plug ID.
+
+    Request Body
+    ------------
     date : str
       Date of the new alarm. The format must be `yyyy-mm-dd hh:mm`.
+
+    Return
+    ------
+    plug : json
+      Propertie of a plug by its ID.
     """
-    if not request.json or not 'date' in request.json:
+    plugs = read4json(path)
+
+    # Check if the plug_id exist
+    ids = [x['id'] for x in plugs]
+    if plug_id not in ids:
+        abort(404)
+
+    # Check the request body
+    if not request.json:
+        abort(400)
+    if not 'date' in request.json:
+        abort(400)
+    if type(request.json['date']) != unicode:
         abort(400)
 
     date_format = '%Y-%m-%d %H:%M'
     new_alarm = request.json['date']
-    new_alarm = datetime.strptime(new_alarm, date_format)
-    now = datetime.now()
 
+    try:
+        new_alarm = datetime.strptime(new_alarm, date_format)
+    except ValueError:
+        abort(400)
+
+    now = datetime.now()
     if now > new_alarm:
         abort(400)
 
-    data = read4json(path)
-    if not str(new_alarm) in data[plug_id]['alarm']:
-        data[plug_id]['alarm'].append(str(new_alarm))
-        save2json(path, data)
+    # Not repeat the same alarms
+    if not str(new_alarm) in plugs[plug_id]['alarm']:
+        plugs[plug_id]['alarm'].append(str(new_alarm))
+        save2json(path, plugs)
 
-    return jsonify({'plugs': data}), 201
+    return jsonify({'plug': plugs[plug_id]}), 201
 
 
 @app.route('/api/plugs/<int:plug_id>', methods=['DELETE'])
@@ -180,30 +222,75 @@ def delete_alarm(plug_id):
     """
     Delete an alarm.
 
-    Parameters
-    ----------
+    Path Parameters
+    ---------------
     plug_id : int
       Plug ID.
+
+    Request Body
+    ------------
     date : str
       Alarm to delete. The format must be `yyyy-mm-dd hh:mm`.
+
+    Return
+    ------
+    plug : json
+      Propertie of a plug by its ID.
     """
     plugs = read4json(path)
-    plug = [plug for plug in plugs if plug['id'] == plug_id]
 
-    if len(plug) == 0:
-        abort(400)
+    # Check if the plug_id exist
+    ids = [x['id'] for x in plugs]
+    if plug_id not in ids:
+        abort(404)
+
+    # Check the request body
     if not request.json:
         abort(400)
-    if 'state' in request.json and type(request.json['state']) != bool:
+    if not 'date' in request.json:
+        abort(400)
+    if type(request.json['date']) != unicode:
+        abort(400)
+
+    date_format = '%Y-%m-%d %H:%M'
+    new_alarm = request.json['date']
+
+    try:
+        new_alarm = datetime.strptime(new_alarm, date_format)
+    except ValueError:
         abort(400)
 
     return jsonify({'result': True})
 
 
+######################################################################
+# ERRORS
+######################################################################
+
+@app.errorhandler(400)
+def not_found(error):
+    """
+    Error 400 for Bad Request.
+
+    The body request is empy or with a bad key (for example `new_name` in side of `name`).
+    """
+    return make_response(jsonify({'error': 'Bad request'}), 400)
+
+
+@app.errorhandler(401)
+def not_found(error):
+    """
+    Error 401 for Unauthorized.
+    """
+    return make_response(jsonify({'error': 'Unauthorized'}), 401)
+
+
 @app.errorhandler(404)
 def not_found(error):
     """
-    404 error.
+    Error 404 for Resource Not Found.
+
+    The id in the URI don't exist.
     """
     return make_response(jsonify({'error': 'Not found'}), 404)
 
