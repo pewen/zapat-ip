@@ -1,6 +1,6 @@
 # Zapat-IP
 
-**Zapat-IP** es una zapatilla eléctrica IP de software y hardware libre, que nos va a permitir controlar nuestros artículos electrónicos (TV, aire acondicionado, luces, etc.) desde cualquier lugar.
+**Zapat-IP** es una zapatilla eléctrica IP de software y hardware libre, para controlar artículos electrónicos (TV, aire acondicionado, luces, etc.) desde cualquier lugar.
 
 **Área temática: Internet of Things (IoT).**
 
