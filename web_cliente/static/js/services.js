@@ -6,20 +6,29 @@ IpZapServices.factory('Plug', ['$resource', function($resource) {
 		     {
 			 'ListPlug': {
 			     method: 'GET',
+			     format: 'json',
 			     isArray: false
 			 },
 			 'UpdatePlug': {
 			     method: 'PUT',
 			     params: { cmd:"state" },
+			     format: 'json',
+			     isArray: false
 			 },
 			 'RenamePlug': {
 			     method: 'PUT',
+			     format: 'json',
+			     isArray: false
 			 },
 			 'AddAlarm': {
-			     method: 'POST'
+			     method: 'POST',
+			     format: 'json',
+			     isArray: false
 			 },
 			 'DeleteAlarm': {
-			     method: 'DELETE'
+			     method: 'DELETE',
+			     format: 'json',
+			     isArray: false
 			 }
 		     });
 }]);

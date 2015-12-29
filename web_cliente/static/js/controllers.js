@@ -12,12 +12,15 @@ IpZapControllers.controller('PlugListCtrl', ['$scope', 'Plug',
 	// Change state of a id plug
 	// =========================
 	$scope.changeState = function(id) {
-	    $scope.product = {};
 	    // New state
+	    $scope.product = {};
 	    $scope.product.state = !$scope.plugs[id]['state'];
 
+	    // Make the PUT and update the plugs date
 	    var product = new Plug($scope.product);
-	    product.$UpdatePlug({ id:id });
+	    product.$UpdatePlug({ id:id }, function(data){
+		$scope.plugs[id] = data.plug;
+	    });
 	};
 
 	// Change Name
@@ -26,14 +29,15 @@ IpZapControllers.controller('PlugListCtrl', ['$scope', 'Plug',
 	    $scope.product = {};
 	    $scope.product.name = name;
 
+	    // Make the PUT and update the plugs date
 	    var product = new Plug($scope.product);
-	    product.$RenamePlug({ id:id});
+	    product.$RenamePlug({ id:id }, function(data){
+		$scope.plugs[id]['name'] = data['plug']['name'];
+	    });
 
 	    // Close the modal
 	    var modalName = '#modalRename' + id;
 	    $(modalName).modal('hide');
-
-	    $scope.plugs[id]['name'] = 'Pepito';
 	};
 
 	// Add Alarm
@@ -42,8 +46,11 @@ IpZapControllers.controller('PlugListCtrl', ['$scope', 'Plug',
 	    $scope.product = {};
 	    $scope.product.date = date;
 
+	    // Make the POST and update the plugs date
 	    var product = new Plug($scope.product);
-	    product.$AddAlarm({ id:id });
+	    product.$AddAlarm({ id:id }, function(data){
+		$scope.plugs[id] = data.plug;
+	    });
 
 	    // Close the modal
 	    var modalName = '#modalAlarm' + id;
