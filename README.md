@@ -7,7 +7,7 @@
 ## Objetivos
 * Desarrollar una primera aplicación con las placas Intel Galileo.
 * Entender los conceptos básicos de [Internet of Things (IoT)](https://en.wikipedia.org/wiki/Internet_of_Things)
-* Aprender!
+* ¡Aprender!
 
 ## Características
 ###Software
