@@ -50,6 +50,6 @@
 #### Licencia
 El código está licenciado bajo [MIT](https://github.com/pewen/zapat-ip/blob/master/LICENSE).
 
-La documentación bajo
+Este documento esta realizado bajo licencia Creative Commons “Reconocimiento 4.0 Internacional” (CC BY 4.0)
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Zapat-IP</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/pewen/zapat-ip" rel="dct:source">https://github.com/pewen/zapat-ip</a>.
