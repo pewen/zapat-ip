@@ -12,3 +12,7 @@ __pycache__/
 *~
 \#*
 .#*
+
+# Define configuration variables that contain sensitive information
+# like passwords and API keys
+server/instance/
