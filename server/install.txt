@@ -1,4 +1,0 @@
-## Requeriments
-
-[Flask](#)
-[Flask-CORS](https://pypi.python.org/pypi/Flask-Cors/1.3.1)
