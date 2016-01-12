@@ -1,18 +1,12 @@
 from __future__ import print_function, division
-
 import json
 from datetime import datetime
 
-import numpy as np
-from flask import Flask, jsonify, abort, make_response, request
-from flask.ext.cors import CORS
+from flask import jsonify, abort, make_response, request
 
-app = Flask(__name__)
-cors = CORS(app, resources={r"/api/plugs/*": {"origins": "*"}})
+from api import app
 
-states = np.array([0, 0, 0, 0], dtype=bool)
 path = 'plugs_data.json'
-
 
 def read4json(file_path):
     "Read configuration data form json file and return a list"
@@ -293,11 +287,3 @@ def not_found(error):
     The id in the URI don't exist.
     """
     return make_response(jsonify({'error': 'Not found'}), 404)
-
-
-if __name__ == '__main__':
-    app.run(
-        host="0.0.0.0",
-        port=int("8003"),
-        debug=True
-    )
