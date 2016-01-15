@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 
 from flask import jsonify, abort, make_response, request
+from flask_security import  login_required
 
 from api import app
 
