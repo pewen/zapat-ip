@@ -13,6 +13,9 @@ __pycache__/
 \#*
 .#*
 
+# User database
+app.db
+
 # Define configuration variables that contain sensitive information
 # like passwords and API keys
 server/instance/
