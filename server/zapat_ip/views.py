@@ -5,7 +5,7 @@ from datetime import datetime
 from flask import jsonify, abort, make_response, request
 from flask_security import  login_required
 
-from api import app
+from zapat_ip import app
 
 path = 'plugs_data.json'
 

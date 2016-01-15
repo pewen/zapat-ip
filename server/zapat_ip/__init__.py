@@ -24,11 +24,11 @@ app.config.from_object('config')
 app.config.from_pyfile('config.py')
 
 db = SQLAlchemy(app)
-from api.models import User, Role
+from zapat_ip.models import User, Role
 
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
 
 init_db()
 
-import api.views
+import zapat_ip.views

@@ -4,7 +4,7 @@ Definition of users and roles models.
 from flask.ext.security import UserMixin, RoleMixin
 
 #from api.extensions import db
-from api import db
+from zapat_ip import db
 
 # Relationship between users and roles
 roles_users = db.Table(
